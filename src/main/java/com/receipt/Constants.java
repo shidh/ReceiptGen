@@ -10,7 +10,7 @@ public class Constants {
     public static final String MEDICAL = "Medical";
     public static final String NOEXEMPT = "NoExempt";
 
-    public static final double SALES_TAX_FOR_NOEXEMPT = 0.10;
-    public static final double IMPORT_TAX_FOR_IMPORTED = 0.05;
+    public static final int SALES_TAX_FOR_NOEXEMPT = 10;
+    public static final int IMPORT_TAX_FOR_IMPORTED = 5;
 
 }

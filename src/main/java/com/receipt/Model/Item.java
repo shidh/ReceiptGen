@@ -1,6 +1,7 @@
 package com.receipt.Model;
 
 import com.receipt.Constants;
+import com.receipt.Util;
 
 /**
  * Created by allen on 26/11/15.
@@ -69,7 +70,7 @@ public class Item {
 
 
     public double getTotalTax(){
-        double taxRate = 0;
+        int taxRate = 0;
 
         if(!isExempt) {
             taxRate += Constants.SALES_TAX_FOR_NOEXEMPT;
@@ -77,13 +78,14 @@ public class Item {
         if(isImported) {
             taxRate += Constants.IMPORT_TAX_FOR_IMPORTED;
         }
-        totalTax = taxRate * price;
-
+        totalTax = taxRate * price /100.0;
+        totalTax = Util.roundUpDouble(totalTax);
         return totalTax;
     }
 
     public double getShelfPrice(){
-        return price + totalTax;
+        shelfPrice = price + totalTax;
+        return shelfPrice;
     }
 
 

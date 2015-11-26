@@ -56,23 +56,23 @@ public class ReceiptGen {
     }
 
     private static void generateReceipt(List<Item> items){
-        double salesTaxes = 0;
-        double totalPrice = 0;
+        double salesTaxes = 0.00;
+        double totalPrice = 0.00;
         for(Item item : items){
             salesTaxes += item.getTotalTax();
             totalPrice += item.getShelfPrice();
             if (item.isImported()) {
                 System.out.println(item.getAmount() + " imported" + " "+
                                    item.getName()+ ": "+
-                                   item.getShelfPrice());
+                        String.format( "%.2f", item.getShelfPrice()));
             }else{
                 System.out.println(item.getAmount() + " "+
                         item.getName()+ ": "+
-                        item.getShelfPrice());
+                        String.format( "%.2f",item.getShelfPrice()));
             }
         }
-        System.out.println("Sales Taxes: " + salesTaxes);
-        System.out.println("Total: " + totalPrice);
-
+        System.out.println("Sales Taxes: " + String.format( "%.2f", salesTaxes ) );
+        System.out.println("Total: " + String.format( "%.2f", totalPrice ));
     }
+
 }
