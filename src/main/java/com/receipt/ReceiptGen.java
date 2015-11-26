@@ -59,8 +59,8 @@ public class ReceiptGen {
         double salesTaxes = 0.00;
         double totalPrice = 0.00;
         for(Item item : items){
-            salesTaxes += item.getTotalTax();
-            totalPrice += item.getShelfPrice();
+            salesTaxes += item.getTotalTax() * item.getAmount();
+            totalPrice += item.getShelfPrice() * item.getAmount();
             if (item.isImported()) {
                 System.out.println(item.getAmount() + " imported" + " "+
                                    item.getName()+ ": "+
