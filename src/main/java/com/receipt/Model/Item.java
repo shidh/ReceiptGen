@@ -3,6 +3,8 @@ package com.receipt.Model;
 import com.receipt.Constants;
 import com.receipt.Util;
 
+import java.math.BigDecimal;
+
 /**
  * Created by allen on 26/11/15.
  */
@@ -79,7 +81,8 @@ public class Item {
             taxRate += Constants.IMPORT_TAX_FOR_IMPORTED;
         }
         totalTax = taxRate * price /100.0;
-        totalTax = Util.roundUpDouble(totalTax);
+        totalTax = Util.roundUpDouble(new BigDecimal(totalTax));
+
         return totalTax;
     }
 

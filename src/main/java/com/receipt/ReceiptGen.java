@@ -1,4 +1,5 @@
-package com.receipt; /**
+package com.receipt;
+/**
  * Created by allen on 26/11/15.
  */
 
@@ -53,6 +54,7 @@ public class ReceiptGen {
     public static void main(String[] args){
         List<Item> itemsFromFile =  InputParser.parseInput("shoppingList.txt");
         generateReceipt(itemsFromFile);
+        System.out.print(Math.ceil(11.25));
     }
 
     private static void generateReceipt(List<Item> items){
